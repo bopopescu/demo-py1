@@ -1,0 +1,127 @@
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql> use mysql
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> create table Dept(did int,dname varchar(30),location varchar(20));
+Query OK, 0 rows affected (1.33 sec)
+
+mysql> describe Dept;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| did      | int(11)     | YES  |     | NULL    |       |
+| dname    | varchar(30) | YES  |     | NULL    |       |
+| location | varchar(20) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.06 sec)
+
+mysql> insert into Dept values(11,'IT','Mumbai');
+Query OK, 1 row affected (0.19 sec)
+
+mysql> insert into Dept values(12,'FN','Delhi');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into Dept values(13,'SL','Bangalore');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into Dept values(14,'Admin','Chennai');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from Dept;
++------+-------+-----------+
+| did  | dname | location  |
++------+-------+-----------+
+|   11 | IT    | Mumbai    |
+|   12 | FN    | Delhi     |
+|   13 | SL    | Bangalore |
+|   14 | Admin | Chennai   |
++------+-------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> select did,dname from Dept;
++------+-------+
+| did  | dname |
++------+-------+
+|   11 | IT    |
+|   12 | FN    |
+|   13 | SL    |
+|   14 | Admin |
++------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select did,dname from Dept where did = 11 or did = 12;
++------+-------+
+| did  | dname |
++------+-------+
+|   11 | IT    |
+|   12 | FN    |
++------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Dept;
++------+-------+-----------+
+| did  | dname | location  |
++------+-------+-----------+
+|   11 | IT    | Mumbai    |
+|   12 | FN    | Delhi     |
+|   13 | SL    | Bangalore |
+|   14 | Admin | Chennai   |
++------+-------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> update Dept set location = 'Kolkata' where did = 13;
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from Dept;
++------+-------+----------+
+| did  | dname | location |
++------+-------+----------+
+|   11 | IT    | Mumbai   |
+|   12 | FN    | Delhi    |
+|   13 | SL    | Kolkata  |
+|   14 | Admin | Chennai  |
++------+-------+----------+
+4 rows in set (0.00 sec)
+
+mysql> insert into Dept values(15,'Legal','Chennai');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from Dept;
++------+-------+----------+
+| did  | dname | location |
++------+-------+----------+
+|   11 | IT    | Mumbai   |
+|   12 | FN    | Delhi    |
+|   13 | SL    | Kolkata  |
+|   14 | Admin | Chennai  |
+|   15 | Legal | Chennai  |
++------+-------+----------+
+5 rows in set (0.00 sec)
+
+mysql> delete from Dept where did = 15;
+Query OK, 1 row affected (0.11 sec)
+
+mysql> select * from Dept;
++------+-------+----------+
+| did  | dname | location |
++------+-------+----------+
+|   11 | IT    | Mumbai   |
+|   12 | FN    | Delhi    |
+|   13 | SL    | Kolkata  |
+|   14 | Admin | Chennai  |
++------+-------+----------+
+4 rows in set (0.00 sec)
+
