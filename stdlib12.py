@@ -10,10 +10,10 @@ try:
     record = cursor.fetchall()
     print(record)
     try:
-        #delete_query = "delete from Emp where edid = 12"
-        #cursor.execute(delete_query)
-        delete_query = "delete from Emp where edid = %s"
-        records_to_delete = [(12,),(13,)]
+        delete_query = "delete from Emp where edid = 12"
+        cursor.execute(delete_query)
+        #delete_query = "delete from Emp where edid = %s"
+        #records_to_delete = [(12,),(13,)]
         cursor.execute(delete_query,records_to_delete)
         print(cursor.rowcount," records deleted successfully.")
         conn.commit()
