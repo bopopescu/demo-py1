@@ -68,6 +68,33 @@ print(mydict1)
 
 for i,j in mydict1.items():
     print(i,j)
+    
+>>> mydict2 = {}
+>>> mydict2['a'] = 17
+>>> mydict2['b'] = 10
+>>> mydict2['c'] = 5
+>>> print(mydict2)
+{'a': 17, 'c': 5, 'b': 10}
+>>> for i,j in mydict2.items():
+...     print(i,j)
+... 
+('a', 17)
+('c', 5)
+('b', 10)
+>>> from collections import OrderedDict
+>>> mydict3 = OrderedDict()
+>>> mydict3['a'] = 17
+>>> mydict3['b'] = 10
+>>> mydict3['c'] = 5
+>>> print(mydict3)
+OrderedDict([('a', 17), ('b', 10), ('c', 5)])
+>>> for i,j in mydict3.items():
+...     print(i,j)
+... 
+('a', 17)
+('b', 10)
+('c', 5)
+
 '''
 mydict2 = {}
 mydict2['a'] = 17
